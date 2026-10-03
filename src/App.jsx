@@ -1,12 +1,28 @@
-import { Button, Typography } from "antd";
+import { Layout } from "antd";
+import { Route, Routes } from "react-router-dom";
+import SiteHeader from "./components/SiteHeader";
+import SiteFooter from "./components/SiteFooter";
+import Home from "./pages/Home";
+import Calculator from "./pages/Calculator";
+import About from "./pages/About";
+import Feedback from "./pages/Feedback";
 
-const { Title } = Typography;
+const { Content } = Layout;
 
 export default function App() {
   return (
-    <div style={{ padding: 32 }}>
-      <Title level={2}>Calculadora de Pegada Ecológica</Title>
-      <Button type="primary">Botão de teste</Button>
-    </div>
+    <Layout className="site-layout">
+      <SiteHeader />
+      <Content className="site-content">
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/calculadora" element={<Calculator />} />
+          <Route path="/sobre" element={<About />} />
+          <Route path="/feedback" element={<Feedback />} />
+          <Route path="*" element={<Home />} />
+        </Routes>
+      </Content>
+      <SiteFooter />
+    </Layout>
   );
 }
