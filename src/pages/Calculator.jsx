@@ -3,6 +3,7 @@ import { Button, Card, Radio, Space, Steps, Typography } from "antd";
 import { ArrowLeftOutlined, ArrowRightOutlined } from "@ant-design/icons";
 import { CATEGORIES } from "../data/questions";
 import { calculateFootprint } from "../utils/footprint";
+import ResultView from "../components/ResultView";
 
 const { Title, Paragraph } = Typography;
 
@@ -53,12 +54,8 @@ export default function Calculator() {
 
     if (result) {
         return (
-            <div className="page calculator-page">
-                <Title level={2}>
-                    Seriam necessários {result.planets.toFixed(1)} planetas Terra
-                </Title>
-                <Paragraph>{result.level.label}</Paragraph>
-                <Button onClick={handleRestart}>Refazer o questionário</Button>
+            <div className="page">
+                <ResultView result={result} onRestart={handleRestart} />
             </div>
         );
     }
