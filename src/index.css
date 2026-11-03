@@ -298,6 +298,12 @@ body {
   margin-top: 4px;
 }
 
+/* Feedback */
+.feedback-card {
+  max-width: 560px;
+  background: #ffffff;
+}
+
 /* Footer */
 .site-footer {
   text-align: center;
