@@ -1,6 +1,7 @@
 import { useState } from "react";
-import { Button, Card, Form, Input, Rate, Result, Typography } from "antd";
+import { Alert, Button, Card, Form, Input, Rate, Result, Typography } from "antd";
 import { SmileOutlined } from "@ant-design/icons";
+import { sendFeedback } from "../services/feedback";
 
 const { Title, Paragraph } = Typography;
 const { TextArea } = Input;
@@ -8,11 +9,20 @@ const { TextArea } = Input;
 export default function Feedback() {
     const [form] = Form.useForm();
     const [submitted, setSubmitted] = useState(false);
+    const [sending, setSending] = useState(false);
+    const [error, setError] = useState(false);
 
-    function handleFinish() {
-        // Por enquanto o feedback não é salvo em nenhum lugar:
-        // o envio só mostra a tela de agradecimento.
-        setSubmitted(true);
+    async function handleFinish(values) {
+        setSending(true);
+        setError(false);
+        try {
+            await sendFeedback(values);
+            setSubmitted(true);
+        } catch {
+            setError(true);
+        } finally {
+            setSending(false);
+        }
     }
 
     function handleNewFeedback() {
@@ -78,7 +88,16 @@ export default function Feedback() {
                         />
                     </Form.Item>
 
-                    <Button type="primary" htmlType="submit" size="large">
+                    {error && (
+                        <Alert
+                            type="error"
+                            showIcon
+                            title="Não foi possível enviar o feedback. Verifique sua conexão e tente novamente."
+                            style={{ marginBottom: 16 }}
+                        />
+                    )}
+
+                    <Button type="primary" htmlType="submit" size="large" loading={sending}>
                         Enviar feedback
                     </Button>
                 </Form>
