@@ -10,7 +10,7 @@ const theme = {
     },
     components: {
         Layout: {
-            headerBg: "#ffffff",
+            headerBg: "transparent",
             bodyBg: "#f4f7f2",
             footerBg: "#1b3a1f",
         },

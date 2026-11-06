@@ -24,15 +24,11 @@ body {
 
 /* Header */
 .site-header {
-  display: flex;
-  align-items: center;
-  padding: 0 24px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
   position: sticky;
   top: 0;
   z-index: 10;
   height: auto;
-  min-height: 56px;
+  padding: 16px 16px 0;
   line-height: 1.5;
 }
 
@@ -40,26 +36,34 @@ body {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 12px 24px;
   width: 100%;
   max-width: 1200px;
   margin: 0 auto;
-  gap: 16px;
-  flex-wrap: wrap;
-  padding-block: 8px;
+  padding: 6px 24px;
+  background: #ffffff;
+  border-radius: 20px;
+  box-shadow: 0 6px 24px rgba(27, 58, 31, 0.08);
 }
 
 .site-brand {
   display: flex;
   align-items: center;
-  gap: 8px;
-  font-size: 16px;
-  color: #1f2a1f;
+  gap: 10px;
+  font-size: 18px;
+  color: #1d2b1f;
   text-decoration: none;
   white-space: nowrap;
 }
 
+.site-brand strong {
+  color: #1f6b27;
+}
+
 .site-brand-icon {
-  font-size: 24px;
+  color: #2e7d32;
+  flex: none;
 }
 
 .site-menu {
@@ -67,6 +71,10 @@ body {
   flex: 1;
   min-width: 0;
   justify-content: flex-end;
+}
+
+.site-menu .ant-menu-item-selected {
+  font-weight: 700;
 }
 
 /* Content */
