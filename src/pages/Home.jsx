@@ -33,7 +33,8 @@ export default function Home() {
             <section className="hero">
                 <div className="hero-text">
                     <Title level={1} className="hero-title">
-                        Qual é a sua pegada ecológica?
+                        <span className="hero-title-top">Qual é a sua</span>
+                        <span className="hero-title-highlight">pegada ecológica?</span>
                     </Title>
                     <Paragraph className="hero-subtitle">
                         Descubra, de forma simples e gratuita, como seus hábitos de consumo e deslocamento impactam o meio ambiente — e receba dicas práticas para reduzir esse impacto no dia a dia.

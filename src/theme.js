@@ -6,6 +6,7 @@ const theme = {
         colorInfo: "#00796b",
         colorLink: "#2e7d32",
         borderRadius: 10,
+        fontFamily: "'Nunito', system-ui, -apple-system, 'Segoe UI', sans-serif",
     },
     components: {
         Layout: {
