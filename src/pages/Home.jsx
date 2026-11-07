@@ -6,22 +6,25 @@ const { Title, Paragraph } = Typography;
 
 const highlights = [
     {
-        key: 0,
+        key: "rapido",
+        tone: "green",
         icon: <ThunderboltOutlined />,
-        title: "o que oferece?",
-        text: "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quibusdam amet, optio consequuntur iure voluptatibus vel ullam deleniti. Eligendi saepe ratione quod labore maiores hic? Quas amet est sapiente autem cumque.",
+        title: "Calcule em minutos",
+        text: "Dez perguntas sobre água, energia, alimentação, transporte e consumo. Sem cadastro e sem dados pessoais.",
     },
     {
-        key: 1,
+        key: "dicas",
+        tone: "teal",
         icon: <BulbOutlined />,
-        title: "o que oferece?",
-        text: "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quibusdam amet, optio consequuntur iure voluptatibus vel ullam deleniti. Eligendi saepe ratione quod labore maiores hic? Quas amet est sapiente autem cumque.",
+        title: "Dicas para você",
+        text: "O resultado aponta as duas áreas em que você mais pode reduzir seu impacto, com sugestões práticas para cada uma.",
     },
     {
-        key: 2,
+        key: "bairro",
+        tone: "olive",
         icon: <TeamOutlined />,
-        title: "o que oferece?",
-        text: "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quibusdam amet, optio consequuntur iure voluptatibus vel ullam deleniti. Eligendi saepe ratione quod labore maiores hic? Quas amet est sapiente autem cumque.",
+        title: "Feito para o bairro",
+        text: "Pensado para os moradores do Bairro São Francisco, em Três de Maio, para usar em casa, na escola e na comunidade.",
     },
 ];
 
@@ -63,10 +66,17 @@ export default function Home() {
                 <Row gutter={[24, 24]}>
                     {highlights.map((h) => (
                         <Col xs={24} md={8} key={h.key}>
-                            <Card className="highlight-card" variant="borderless">
-                                <div className="highlight-icon">{h.icon}</div>
-                                <Title level={4}>{h.title}</Title>
-                                <Paragraph type="secondary">{h.text}</Paragraph>
+                            <Card
+                                className={`highlight-card highlight-card--${h.tone}`}
+                                variant="borderless"
+                            >
+                                <div className="highlight-header">
+                                    <span className="highlight-icon">{h.icon}</span>
+                                    <Title level={2} className="highlight-title">
+                                        {h.title}
+                                    </Title>
+                                </div>
+                                <Paragraph className="highlight-text">{h.text}</Paragraph>
                             </Card>
                         </Col>
                     ))}

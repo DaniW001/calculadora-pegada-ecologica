@@ -166,14 +166,96 @@ body {
 
 /* Highlights */
 .highlight-card {
+  position: relative;
+  overflow: hidden;
   height: 100%;
   background: #ffffff;
+  border-radius: 20px;
+  box-shadow: 0 8px 28px rgba(27, 58, 31, 0.09);
+}
+
+.highlight-card::before,
+.highlight-card::after {
+  content: "";
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  pointer-events: none;
+}
+
+.highlight-card::before {
+  width: 170px;
+  height: 96px;
+  background: var(--tone-bg);
+  clip-path: path("M0 96 C 30 64 58 44 90 50 C 116 55 132 22 170 10 L 170 96 Z");
+}
+
+.highlight-card::after {
+  width: 116px;
+  height: 62px;
+  background: var(--tone-hill);
+  clip-path: path("M0 62 C 24 42 48 30 70 37 C 88 43 98 28 116 22 L 116 62 Z");
+}
+
+.highlight-card .ant-card-body {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  height: 100%;
+  padding: 28px;
+}
+
+.highlight-card--green {
+  --tone-bg: #e1f2dc;
+  --tone-fg: #2e7d32;
+  --tone-hill: #c9e7c0;
+}
+
+.highlight-card--teal {
+  --tone-bg: #dcefed;
+  --tone-fg: #00695c;
+  --tone-hill: #bfe1dc;
+}
+
+.highlight-card--olive {
+  --tone-bg: #eef1d8;
+  --tone-fg: #5f6b10;
+  --tone-hill: #dde3b2;
+}
+
+.highlight-header {
+  display: flex;
+  align-items: center;
+  gap: 14px;
 }
 
 .highlight-icon {
-  font-size: 28px;
-  color: #2e7d32;
-  margin-bottom: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: none;
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  background: var(--tone-bg);
+  color: var(--tone-fg);
+  font-size: 24px;
+}
+
+.highlight-title {
+  margin: 0 !important;
+  font-family: "Outfit", system-ui, sans-serif !important;
+  font-size: 22px !important;
+  font-weight: 700 !important;
+}
+
+.highlight-text {
+  margin: 0 !important;
+  font-size: 16px;
+  line-height: 1.6;
+  color: #4a5a4d;
 }
 
 /* Calculator */
