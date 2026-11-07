@@ -20,6 +20,7 @@ body {
 
 .site-layout {
   min-height: 100vh;
+  overflow-x: clip;
 }
 
 /* Header */
@@ -256,6 +257,34 @@ body {
   font-size: 16px;
   line-height: 1.6;
   color: #4a5a4d;
+}
+
+.home-wave,
+.home-cards {
+  margin-inline: calc(50% - 50vw);
+}
+
+.home-wave {
+  margin-top: 24px;
+}
+
+.home-wave svg {
+  display: block;
+  width: 100%;
+  height: 70px;
+  fill: #ffffff;
+}
+
+.home-cards {
+  background: #ffffff;
+  padding: 8px 0 64px;
+  margin-bottom: -64px;
+}
+
+.home-cards-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px;
 }
 
 /* Calculator */

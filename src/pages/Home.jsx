@@ -62,25 +62,33 @@ export default function Home() {
                 </div>
             </section>
 
-            <section className="section">
-                <Row gutter={[24, 24]}>
-                    {highlights.map((h) => (
-                        <Col xs={24} md={8} key={h.key}>
-                            <Card
-                                className={`highlight-card highlight-card--${h.tone}`}
-                                variant="borderless"
-                            >
-                                <div className="highlight-header">
-                                    <span className="highlight-icon">{h.icon}</span>
-                                    <Title level={2} className="highlight-title">
-                                        {h.title}
-                                    </Title>
-                                </div>
-                                <Paragraph className="highlight-text">{h.text}</Paragraph>
-                            </Card>
-                        </Col>
-                    ))}
-                </Row>
+            <div className="home-wave" aria-hidden="true">
+                <svg viewBox="0 0 1440 90" preserveAspectRatio="none">
+                    <path d="M0 50 C 260 100 520 0 760 30 C 1000 60 1220 10 1440 40 V90 H0 Z" />
+                </svg>
+            </div>
+
+            <section className="home-cards">
+                <div className="home-cards-inner">
+                    <Row gutter={[24, 24]}>
+                        {highlights.map((h) => (
+                            <Col xs={24} md={8} key={h.key}>
+                                <Card
+                                    className={`highlight-card highlight-card--${h.tone}`}
+                                    variant="borderless"
+                                >
+                                    <div className="highlight-header">
+                                        <span className="highlight-icon">{h.icon}</span>
+                                        <Title level={2} className="highlight-title">
+                                            {h.title}
+                                        </Title>
+                                    </div>
+                                    <Paragraph className="highlight-text">{h.text}</Paragraph>
+                                </Card>
+                            </Col>
+                        ))}
+                    </Row>
+                </div>
             </section>
         </div>
     );
