@@ -1,16 +1,78 @@
-# React + Vite
+# Calculadora de Pegada Ecológica
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Aplicação web educacional que estima a pegada ecológica do usuário a partir
+de seus hábitos do dia a dia e sugere dicas personalizadas para reduzir o
+impacto ambiental.
 
-Currently, two official plugins are available:
+Projeto das Atividades Extensionistas do curso de Bacharelado em Ciência da
+Computação do Centro Universitário Internacional UNINTER, aplicado na
+comunidade do Bairro São Francisco, em Três de Maio – RS.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## Funcionalidades
 
-## React Compiler
+- Questionário com 20 perguntas, 4 em cada uma das 5 categorias: Água,
+Energia, Alimentação, Transporte e Consumo e Resíduos.
+- Resultado que responde: "se todas as pessoas vivessem como você, de
+quantos planetas Terra a humanidade precisaria?", com o nível de impacto
+e o desempenho em cada categoria.
+- Dicas priorizadas para as duas categorias de maior impacto.
+- Formulário de feedback anônimo, com as respostas salvas numa planilha
+do Google, via Google Forms.
+- Layout responsivo, pensado principalmente para o uso no celular.
+- Nenhum cadastro ou dado pessoal obrigatório.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## Tecnologias
 
-## Expanding the ESLint configuration
+- [React](https://react.dev/)
+- [Ant Design](https://ant.design/)
+- [React Router](https://reactrouter.com/)
+- [Vite](https://vite.dev/)
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## Como rodar
+
+É preciso ter o [Node.js](https://nodejs.org/) instalado.
+
+```bash
+npm install       # instala as dependências
+npm run dev       # inicia o servidor de desenvolvimento e abre o navegador
+npm run lint      # verifica o código com ESLint
+npm run build     # gera a versão de produção em dist/
+npm run preview   # serve a versão de produção localmente
+```
+
+## Estrutura
+
+```
+src/
+    assets/       imagens (ilustração da página inicial)
+    components/   cabeçalho, rodapé e tela de resultado
+    data/         perguntas e alternativas do questionário
+    pages/        Início, Calculadora, Sobre e Feedback
+    services/     envio do feedback para o Google Forms
+    utils/        cálculo da pegada ecológica e dicas
+```
+
+## Como funciona o cálculo
+
+Cada pergunta tem quatro alternativas, que valem de 1 (baixo impacto) a 4
+(alto impacto). A média das respostas é convertida numa escala de 1 a 5
+planetas Terra, e as categorias são ordenadas da pior para a melhor para
+priorizar as dicas. A lógica está em `src/utils/footprint.js` e as
+perguntas em `src/data/questions.js`.
+
+> O resultado é uma estimativa didática e não substitui metodologias
+> científicas de cálculo da pegada ecológica.
+
+## Feedback
+
+O formulário da página Feedback envia as respostas para um Google Forms,
+e elas ficam registradas na planilha vinculada a ele. O ID do formulário
+e os códigos de cada pergunta estão em `src/services/feedback.js`.
+
+Para usar outro formulário, crie um no Google Forms com três perguntas
+(nota, nome e comentário), sem nenhuma obrigatória e sem coleta de
+e-mail, e troque esses valores pelos do novo formulário.
+
+## Autor
+
+Daniel Henrique Weber
