@@ -181,7 +181,7 @@ export const CATEGORIES = [
       },
       {
         id: "transporte_carona",
-        text: "Quando você anda de carro, ele costuma ir com outras pessoas?",
+        text: "Quando você anda de carro, costuma ir com outras pessoas junto?",
         options: [
           { label: "Não ando de carro", value: 1 },
           { label: "Quase sempre", value: 2 },
