@@ -17,6 +17,12 @@ export default function ResultView({ result, onRestart }) {
     const { planets, level, byCategory, rankedCategories } = result;
 
     const worstCategories = rankedCategories.slice(0, 2);
+    const planetsRounded = Math.round(planets * 10) / 10;
+    const planetsText = planetsRounded.toLocaleString("pt-BR", {
+        minimumFractionDigits: 1,
+        maximumFractionDigits: 1,
+    });
+    const planetsWord = planetsRounded < 2 ? "planeta" : "planetas";
 
     return (
         <div className="result-view">
@@ -24,10 +30,12 @@ export default function ResultView({ result, onRestart }) {
                 <Tag color={level.color} className="result-level-tag">
                     {level.label}
                 </Tag>
+                <Paragraph className="result-planets-intro">
+                    Se todas as pessoas vivessem como você, a humanidade precisaria de
+                </Paragraph>
                 <Title level={2} className="result-planets">
-                    Seriam necessários{" "}
-                    <span style={{ color: level.color }}>{planets.toFixed(1)}</span>{" "}
-                    planetas Terra
+                    <span style={{ color: level.color }}>{planetsText}</span>{" "}
+                    {planetsWord} Terra
                 </Title>
                 <Paragraph className="result-summary-text">{level.summary}</Paragraph>
                 <Paragraph type="secondary" className="result-disclaimer">
@@ -60,7 +68,7 @@ export default function ResultView({ result, onRestart }) {
                                     </span>
                                     <span>{cat.title}</span>
                                 </div>
-                                <Progress percent={percent} strokeColor={barColor(percent)} />
+                                <Progress percent={percent} strokeColor={barColor(percent)} status="normal" format={(p) => `${p}%`} />
                             </Card>
                         </Col>
                     );
