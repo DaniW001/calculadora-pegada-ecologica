@@ -1,6 +1,7 @@
 import { ArrowRightOutlined, BulbOutlined, TeamOutlined, ThunderboltOutlined } from "@ant-design/icons";
 import { Button, Card, Col, Row, Typography } from "antd";
 import { useNavigate } from "react-router-dom";
+import globo from "../assets/globo.webp";
 
 const { Title, Paragraph } = Typography;
 
@@ -57,8 +58,8 @@ export default function Home() {
                         </Button>
                     </div>
                 </div>
-                <div className="hero-illustration" aria-hidden="true">
-                    🌍
+                <div className="hero-illustration">
+                    <img src={globo} alt="" width="800" height="800" />
                 </div>
             </section>
 

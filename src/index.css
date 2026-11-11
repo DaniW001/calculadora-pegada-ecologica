@@ -160,9 +160,16 @@ body {
 }
 
 .hero-illustration {
-  font-size: clamp(90px, 14vw, 180px);
-  line-height: 1;
-  flex: 0 0 auto;
+  flex: 0 1 400px;
+  min-width: 0;
+  display: flex;
+  justify-content: center;
+}
+
+.hero-illustration img {
+  width: 100%;
+  max-width: 400px;
+  height: auto;
 }
 
 /* Highlights */
@@ -502,5 +509,9 @@ body {
 
   .calculator-nav .ant-btn {
     width: 100%;
+  }
+
+  .hero-illustration img {
+    max-width: 240px;
   }
 }
