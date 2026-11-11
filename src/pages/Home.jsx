@@ -33,7 +33,7 @@ export default function Home() {
     const navigate = useNavigate();
 
     return (
-        <div className="page">
+        <div className="page home-page">
             <section className="hero">
                 <div className="hero-text">
                     <Title level={1} className="hero-title">

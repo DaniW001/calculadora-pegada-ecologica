@@ -80,6 +80,8 @@ body {
 
 /* Content */
 .site-content {
+  display: flex;
+  flex-direction: column;
   width: 100%;
   max-width: 1200px;
   margin: 0 auto;
@@ -88,6 +90,7 @@ body {
 
 .page {
   width: 100%;
+  flex: 1 0 auto;
 }
 
 .section {
@@ -168,7 +171,7 @@ body {
 
 .hero-illustration img {
   width: 100%;
-  max-width: 400px;
+  max-width: 360px;
   height: auto;
 }
 
@@ -282,7 +285,14 @@ body {
   fill: #ffffff;
 }
 
+.home-page {
+  display: flex;
+  flex-direction: column;
+}
+
+
 .home-cards {
+  flex: 1 0 auto;
   background: #ffffff;
   padding: 8px 0 64px;
   margin-bottom: -64px;
