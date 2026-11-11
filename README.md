@@ -48,7 +48,7 @@ src/
     components/   cabeçalho, rodapé e tela de resultado
     data/         perguntas e alternativas do questionário
     pages/        Início, Calculadora, Sobre e Feedback
-    services/     envio do feedback para o Google Forms
+    services/     envio do feedback e dos resultados para o Google Forms
     utils/        cálculo da pegada ecológica e dicas
 ```
 
@@ -72,6 +72,14 @@ e os códigos de cada pergunta estão em `src/services/feedback.js`.
 Para usar outro formulário, crie um no Google Forms com três perguntas
 (nota, nome e comentário), sem nenhuma obrigatória e sem coleta de
 e-mail, e troque esses valores pelos do novo formulário.
+
+## Dados coletados
+
+Ao terminar o questionário, o resultado é registrado de forma anônima em
+outro Google Forms: o número de planetas, o nível de impacto, o percentual
+de cada categoria e a alternativa escolhida em cada pergunta. Nenhum dado
+pessoal é coletado. Esses registros servem para a análise do projeto na
+comunidade, e o código do envio está em `src/services/results.js`.
 
 ## Autor
 

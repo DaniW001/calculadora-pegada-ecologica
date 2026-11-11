@@ -4,6 +4,7 @@ import { ArrowLeftOutlined, ArrowRightOutlined } from "@ant-design/icons";
 import { CATEGORIES } from "../data/questions";
 import { calculateFootprint } from "../utils/footprint";
 import ResultView from "../components/ResultView";
+import { sendResult } from "../services/results";
 
 const { Title, Paragraph } = Typography;
 
@@ -16,6 +17,17 @@ function toScores(selected) {
         });
     });
     return scores;
+}
+
+// Converte as alternativas escolhidas no texto de cada uma.
+function toLabels(selected) {
+    const labels = {};
+    CATEGORIES.forEach((cat) => {
+        cat.questions.forEach((q) => {
+            labels[q.id] = q.options[selected[q.id]].label;
+        });
+    });
+    return labels;
 }
 
 export default function Calculator() {
@@ -36,7 +48,11 @@ export default function Calculator() {
 
     function goNext() {
         if (isLastStep) {
-            setResult(calculateFootprint(toScores(selected)));
+            const footprint = calculateFootprint(toScores(selected));
+            setResult(footprint);
+            // Registro anônimo para a análise do projeto. Se falhar,
+            // a pessoa vê o resultado normalmente.
+            sendResult(footprint, toLabels(selected)).catch(() => { });
         } else {
             setStepIndex((i) => i + 1);
         }
@@ -65,8 +81,8 @@ export default function Calculator() {
             <Title level={2}>Calculadora de Pegada Ecológica</Title>
             <Paragraph type="secondary">
                 Responda as perguntas abaixo com sinceridade. Não é necessário
-                informar nenhum dado pessoal — suas respostas são usadas apenas para
-                calcular o resultado nesta sessão.
+                informar nenhum dado pessoal. Ao final, suas respostas são registradas
+                de forma anônima, apenas para a análise deste projeto.
             </Paragraph>
 
             <Steps

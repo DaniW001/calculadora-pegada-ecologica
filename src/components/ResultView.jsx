@@ -50,11 +50,6 @@ export default function ResultView({ result, onRestart }) {
             </Title>
             <Row gutter={[16, 16]}>
                 {byCategory.map((cat) => {
-                    // 0% = melhor resposta em tudo, 100% = pior resposta em tudo.
-                    const minScore = cat.maxScore / 4;
-                    const percent = Math.round(
-                        ((cat.score - minScore) / (cat.maxScore - minScore)) * 100
-                    );
                     return (
                         <Col xs={24} sm={12} key={cat.key}>
                             <Card
@@ -68,7 +63,7 @@ export default function ResultView({ result, onRestart }) {
                                     </span>
                                     <span>{cat.title}</span>
                                 </div>
-                                <Progress percent={percent} strokeColor={barColor(percent)} status="normal" format={(p) => `${p}%`} />
+                                <Progress percent={cat.percent} strokeColor={barColor(cat.percent)} status="normal" format={(p) => `${p}%`} />
                             </Card>
                         </Col>
                     );

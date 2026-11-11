@@ -80,14 +80,19 @@ export function calculateFootprint(answers) {
             0
         );
 
+        const maxScore = cat.questions.length * 4;
+        const minScore = cat.questions.length;
+
         return {
             key: cat.key,
             title: cat.title,
             icon: cat.icon,
             score,
-            maxScore: cat.questions.length * 4,
+            maxScore,
             average: score / cat.questions.length,
-        };
+            // 0% = melhor resposta em tudo, 100% = pior resposta em tudo.
+            percent: Math.round(((score - minScore) / (maxScore - minScore)) * 100),
+        }
     });
 
     const totalScore = byCategory.reduce((sum, c) => sum + c.score, 0);
