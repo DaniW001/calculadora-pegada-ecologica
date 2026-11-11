@@ -1,5 +1,7 @@
 # Calculadora de Pegada Ecológica
 
+**Acesse:** https://pegada-ecologica-pi.vercel.app
+
 Aplicação web educacional que estima a pegada ecológica do usuário a partir
 de seus hábitos do dia a dia e sugere dicas personalizadas para reduzir o
 impacto ambiental.
