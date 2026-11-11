@@ -11,7 +11,7 @@ const highlights = [
         tone: "green",
         icon: <ThunderboltOutlined />,
         title: "Calcule em minutos",
-        text: "Dez perguntas sobre água, energia, alimentação, transporte e consumo. Sem cadastro e sem dados pessoais.",
+        text: "Vinte perguntas sobre água, energia, alimentação, transporte e consumo. Sem cadastro e sem dados pessoais.",
     },
     {
         key: "dicas",

@@ -9,18 +9,21 @@ export const TIPS = {
         "Feche a torneira ao escovar os dentes ou ensaboar a louça.",
         "Reaproveite a água da máquina de lavar ou do banho para limpeza e plantas.",
         "Conserte vazamentos assim que forem identificados.",
+        "Guarde o óleo de cozinha usado em uma garrafa e leve a um ponto de coleta. Nunca jogue na pia.",
     ],
     energia: [
         "Troque lâmpadas comuns por lâmpadas de LED.",
         "Desligue aparelhos e luzes de cômodos vazios.",
         "Aproveite a luz natural durante o dia.",
         "Avalie o uso de energia solar, quando possível.",
+        "Tire da tomada os carregadores e os aparelhos que ficam em modo de espera.",
     ],
     alimentacao: [
         "Reduza o consumo de carne, mesmo que gradualmente (ex.: 1-2 dias por semana sem carne).",
         "Planeje as compras para evitar desperdício de alimentos.",
         "Dê preferência a alimentos locais e da estação.",
         "Reaproveite sobras de comida em novas receitas.",
+        "Troque ultraprocessados por alimentos frescos sempre que possível.",
     ],
     transporte: [
         "Priorize caminhada, bicicleta ou transporte público sempre que possível.",
@@ -33,6 +36,7 @@ export const TIPS = {
         "Prefira comprar menos e de melhor qualidade, priorizando durabilidade.",
         "Doe, troque ou conserte itens em vez de descartá-los.",
         "Leve sacolas e potes reutilizáveis às compras.",
+        "Leve móveis, entulho e eletrônicos ao ecoponto ou à coleta da prefeitura.",
     ],
 };
 
