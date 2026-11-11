@@ -443,6 +443,8 @@ body {
 .ods-tag {
   padding: 4px 10px;
   font-size: 13px;
+  white-space: normal;
+  max-width: 100%;
 }
 
 .objectives-list {
