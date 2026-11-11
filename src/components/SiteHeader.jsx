@@ -1,5 +1,6 @@
-import { CalculatorOutlined, HomeOutlined, InfoCircleOutlined, MessageOutlined } from "@ant-design/icons";
-import { Layout, Menu } from "antd";
+import { useState } from "react";
+import { CalculatorOutlined, HomeOutlined, InfoCircleOutlined, MenuOutlined, MessageOutlined, } from "@ant-design/icons";
+import { Button, Drawer, Layout, Menu } from "antd";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 
 const { Header } = Layout;
@@ -16,6 +17,12 @@ export default function SiteHeader() {
     const location = useLocation();
 
     const selectedKey = items.find((i) => i.key === location.pathname)?.key ?? "/";
+
+    const [drawerOpen, setDrawerOpen] = useState(false);
+    function handleNavigate(e) {
+        navigate(e.key);
+        setDrawerOpen(false);
+    }
 
     return (
         <Header className="site-header">
@@ -45,10 +52,31 @@ export default function SiteHeader() {
                     mode="horizontal"
                     selectedKeys={[selectedKey]}
                     items={items}
-                    onClick={(e) => navigate(e.key)}
+                    onClick={handleNavigate}
                     className="site-menu"
                 />
+                <Button
+                    type="text"
+                    icon={<MenuOutlined />}
+                    aria-label="Abrir menu"
+                    onClick={() => setDrawerOpen(true)}
+                    className="site-menu-button"
+                />
             </div>
+            <Drawer
+                title="Menu"
+                open={drawerOpen}
+                onClose={() => setDrawerOpen(false)}
+                size={280}
+            >
+                <Menu
+                    mode="inline"
+                    selectedKeys={[selectedKey]}
+                    items={items}
+                    onClick={handleNavigate}
+                    className="site-drawer-menu"
+                />
+            </Drawer>
         </Header>
     );
 }

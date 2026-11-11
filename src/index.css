@@ -78,6 +78,15 @@ body {
   font-weight: 700;
 }
 
+.site-menu-button {
+  display: none;
+  font-size: 20px;
+}
+
+.site-drawer-menu {
+  border-inline-end: none !important;
+}
+
 /* Content */
 .site-content {
   display: flex;
@@ -518,6 +527,17 @@ body {
 }
 
 /* Responsive tweaks */
+/* Menu em gaveta abaixo de 992px */
+@media (max-width: 991px) {
+  .site-menu {
+    display: none;
+  }
+
+  .site-menu-button {
+    display: inline-flex;
+  }
+}
+
 @media (max-width: 900px) {
   .hero {
     position: relative;
@@ -546,11 +566,14 @@ body {
 
 @media (max-width: 576px) {
   .site-header-inner {
-    justify-content: center;
+    flex-wrap: nowrap;
   }
 
-  .site-menu {
-    justify-content: center;
+  .site-brand {
+    min-width: 0;
+    white-space: normal;
+    line-height: 1.2;
+    font-size: 16px;
   }
 
   .hero {

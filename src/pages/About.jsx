@@ -38,7 +38,7 @@ export default function About() {
             </Paragraph>
 
             <Row gutter={[24, 24]} className="section">
-                <Col xs={24} md={12}>
+                <Col xs={24} lg={12}>
                     <Card
                         title={
                             <span>
@@ -62,7 +62,7 @@ export default function About() {
                         </Paragraph>
                     </Card>
                 </Col>
-                <Col xs={24} md={12}>
+                <Col xs={24} lg={12}>
                     <Card
                         title={
                             <span>
