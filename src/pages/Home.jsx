@@ -73,7 +73,7 @@ export default function Home() {
                 <div className="home-cards-inner">
                     <Row gutter={[24, 24]}>
                         {highlights.map((h) => (
-                            <Col xs={24} md={8} key={h.key}>
+                            <Col xs={24} lg={8} key={h.key}>
                                 <Card
                                     className={`highlight-card highlight-card--${h.tone}`}
                                     variant="borderless"
